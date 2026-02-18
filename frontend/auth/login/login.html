@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="login.css" />
+    <title>login page</title>   
+    </head>
+    <body>
+        <div class="bgContainer">
+            <div class="cardContainer">
+                <h1 class="loginHeading">Welcome back to your account</h1>
+                <form class="formContainer">
+                    <div>
+                        <label class="label" for="name">Name:</label><br>
+                        <input type="text" id="name" class="input" placeholder="Enter your name"/>
+                        <p class="para" id="nameError"></p>
+                    </div>
+                    <div>
+                    <label class="label" for="email">Email:</label><br>
+                    <input type="email" id="email" class="input" placeholder="Enter your mail" />
+                    <p class="para" id="emailError"></p>
+                    </div>
+                    <div>
+                        <label class="label" for="password">password:</label><br>
+                        <input type="password" id="password" class="input" />
+                        <p class="para" id="passwordError"></p>
+                    </div>
+                    <div class="buttonContainer">
+                        <button  type="submit" id="submitBtn">Login</button>
+                        <div>
+                            <p class="result" id="result"></p>
+                        </div>
+                        <div class="">
+                            <a href="#forget">forget password?</a>
+                            <a href="../signup/signup.html">or signUp</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src=""></script>
+    </body>
+</html>

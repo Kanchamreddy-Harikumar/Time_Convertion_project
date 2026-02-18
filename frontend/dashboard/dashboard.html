@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <title>Time Converter</title>
+  <link rel="icon" href="https://tse1.mm.bing.net/th/id/OIP.DBnPQcyWXzIaVeHAeZLZiwHaKh?pid=Api"/>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <meta name="author" content="Harikumar Kanchamreddy">
+  </head>
+  <body>
+      <div class=" bgContainer">
+      <h1 class="text">Click The Buttons To Convert Time</h1>
+      <h1 id="headerE1" class="headingE1"> </h1>
+      <div class="d-flex justify-content-center align-items-center">
+      <button class="btn btn-primary m-3 mt-3" id="hrsMin"> hrs-min</button><br>
+      <button class="btn btn-success m-3 mt-3" id="hrsSec">hrs-sec</button><br>
+      <button class="btn btn-warning m-3 mt-3" id="minHrs">min-hrs</button><br>
+      <button class="btn btn-danger m-3 mt-3" id="minSec">min-sec</button><br>
+      <button class="btn btn-info m-3 mt-3" id="secHrs">sec-hrs</button><br>
+      <button class="btn btn-secondary m-3 mt-3" id="secMin">sec-min</button><br>
+      <button class="btn btn-light m-3 mt-3" id="stopWatch">STOP WATCH</button><br>
+    </div>
+    <div id="inputMsg">
+     <h1 class="mainHeading" id="mainheading"></h1>
+        <p class="paragraph" id="para1"></p>
+        <label class="paragraph label" for="Input" id="label"></label><br>
+        <input id="Input" type="text" class="inputElement"/><br>
+        <button id="button" class="btn btn-primary button">Convert</button>
+    </div>
+        <div id="errortext">
+        <p class="errormsg pl-5 mt-3" id="errorMsg"></p>
+        <p class="pl-5 mt-5 span" id="timeCovertMsg"></p>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

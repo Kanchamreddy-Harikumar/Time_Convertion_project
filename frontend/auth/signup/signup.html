@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>signup Page</title>
+        <link rel="stylesheet" href="signup.css"/>
+    </head>
+    <body>
+        <div class="bgContainer">
+            <div class="cardContainer" id="cardContainer"> 
+                <h1 class="signupHeading">Sign up</h1>
+                <h1 class="signupPara">Create an account? <span><a href="../login/login.html">sign in</a></span></h1>
+                <form class="formContainer">
+                    <div>
+                        <label class="label" for="name">Name:</label><br>
+                        <input type="text" id="name" class="input" placeholder="Enter your name" />
+                        <p id="nameError" class="error"></p>
+                    </div>
+                    <div>
+                        <label class="label" for="email">Email:</label><br>
+                        <input type="email" id="email" class="input" placeholder="Enter your mail" />
+                        <p id="emailError" class="error"></p>   
+                    </div>
+                    <h1 class="gender">Gender:</h1>
+                    <select class="select" id="genderSelect">
+                        <option value="null " selected disabled></option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <div>
+                        <label class="label" for="password">Password:</label><br>
+                        <input type="Password" id="password" class="input" />
+                        <p id="passwordError" class="error"></p>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkBox"/>
+                        <label class="policyPara">I do not receive emails with advertising, suggestions, or marketing promotions</label>
+                    </div>
+                    <p class="para" id="signupmsg"></p>
+                    <div class="buttonContainer">
+                        <button class="button" id="signupBtn">Create</button>
+                    </div>    
+                    <p class="policyPara alignPara">By sigining up, to create an account, you are accepting our terms of service and privacy policy</p>
+                </form>
+            </div>
+        </div>
+        <script src="signup.js"></script>
+    </body>
+</html>
