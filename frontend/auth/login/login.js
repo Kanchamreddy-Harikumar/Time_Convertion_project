@@ -1,24 +1,24 @@
-let Name = document.getElementById("name");
+// let Name = document.getElementById("name");
 let email = document.getElementById("email");
 let password = document.getElementById("password"); 
 
-let nameError = doxument.getElementById("nameError");
+// let nameError = document.getElementById("nameError");
 let emailError = document.getElementById("emailError");
 let passwordError = document.getElementById("passwordError");
 
-let result = document.getElementById("result");
+let res = document.getElementById("result");
 
 
 let submitBtn = document.getElementById("submitBtn");
 
-Name.addEventListener("blur", function () {
-    if (Name.value.trim() === "") {
-        nameError.textContent = "Required*";
-    }
-    else {
-        nameError.textContent = "";
-    }
-});
+// Name.addEventListener("blur", function () {
+//     if (Name.value.trim() === "") {
+//         nameError.textContent = "Required*";
+//     }
+//     else {
+//         nameError.textContent = "";
+//     }
+// });
 
 email.addEventListener("blur", function () {
     if (email.value.trim() === "") {
@@ -48,11 +48,11 @@ password.addEventListener("blur", function () {
     }
 });
 
-submitBtn.addEventListener("click", function (e) {
+submitBtn.addEventListener("click", async(e)=> {
     e.preventDefault();
-    if (Name.value === "") {
-        nameError.textContent = "Required*";
-    }
+    // if (Name.value === "") {
+    //     nameError.textContent = "Required*";
+    // }
     if (email.value === "") {
         emailError.textContent = "Required*";
     }
@@ -60,41 +60,41 @@ submitBtn.addEventListener("click", function (e) {
         passwordError.textContent = "Required*";
     }
 
-    let loginData={
-        name: Name.value,
+    let loginData = {
+        // name: Name.value,
         email: email.value,
-        password:password.value
+        password: password.value
     }
+    try {
+        const response = await fetch("http://localhost:3000/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(loginData)
+        });
 
-    fetch("http://localhost/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(loginData)
-        
-    })
-    .then(response => response.json())
-        .then(data => {
-        console.log(data)
-        if (data.status === 400 || data.message==="User not found, Please sign Up" ) {
-            result.textContent = data.message;
-            }
-        else {
-            if (data.status === 401 || data.message === "Invalid Credentials") {
-                result.textContent = data.message;
-            }
-            else if (data.status === 200 || data.message === "Login successfully") {
-                result.textContent = data.message
-                setTimeout(() => {
-                    window.location.href="./dashboard/dashobard"
-                })
-            }
+        const result = await response.json();
+
+        // Check response.status (HTTP code)
+        if (response.status === 404) {
+            res.style.color = "red";
+            res.textContent = result.message;
+        } else if (response.status === 500) {
+            res.style.color = "red";
+            res.textContent = result.message || "Something went wrong!";
+        } else if(response.status===401){
+            res.style.color = "red";
+            res.textContent = result.message;            
+        } else if (response.status === 200) {
+            res.style.color = "green";
+            alert(result.message)
+
+            setTimeout(() => {
+                window.location.href = "/dashboard/dashboard.html";
+            }, 500);
         }
-        
-        })
-        .catch(error => {
-            error.style.color = "red";
-            console.error(error);
-            result.textContent = error.message || "Something went wrong!";
-    });
-        
+    } catch (error) {
+        console.error("Signup Error:", error);
+        res.style.color = "red";
+        res.textContent = "Something went wrong!";
+    }
 })

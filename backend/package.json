@@ -1,4 +1,9 @@
 {
+  "name": "timeproject-backend",
+  "version": "1.0.0",
+  "description": "Backend for TimeProject",
+  "main": "server.js",
+  "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",

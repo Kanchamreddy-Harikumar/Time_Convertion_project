@@ -1,15 +1,18 @@
 import app from "./app.js";
-import db from "./database/time_converter_db.js"
+import db from "./database/time_converter_db.js";
 
+const startServer = async () => {
+    try {
+        await db.connect();
+        console.log("Database Connected Successfully");
 
-db.connect((err) => {
-    
-    if (err) {
-        console.log("Database connection failed: " + err.message)
+        app.listen(3000, () => {
+            console.log("Server runs on http://localhost:3000/auth/login/login.html");
+        });
+
+    } catch (err) {
+        console.log("Database Connection Failed", err);
     }
-    console.log("Database connected successfully")
+};
 
-    app.listen(3000, () => {
-        console.log("server runs on http://localhost/3000")
-    })
-})
+startServer();
